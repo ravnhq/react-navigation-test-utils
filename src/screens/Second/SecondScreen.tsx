@@ -13,6 +13,7 @@ const SecondScreen = ({route, navigation}: Props) => {
       <Text> Here is the value of param: {firstParam}</Text>
       <Button
         title={'Navigate to the first'}
+        testID={'SecondBtn'}
         onPress={() => navigation.goBack()}
       />
     </View>
