@@ -20,6 +20,7 @@ const FirstScreen = ({navigation}: Props) => {
       />
       <Button
         title={'Navigate to second'}
+        testID={'firstBtn'}
         onPress={() =>
           navigation.push('SecondScreen', {
             firstParam: textValue,

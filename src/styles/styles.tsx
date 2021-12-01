@@ -1,6 +1,8 @@
+import {StyleSheet} from 'react-native';
+
 const white = '#FFFFFF';
 const gray = '#E5E5E5';
-export default {
+const styles = StyleSheet.create({
   input: {
     height: 40,
     margin: 12,
@@ -15,4 +17,6 @@ export default {
     justifyContent: 'center',
     backgroundColor: white,
   },
-};
+});
+
+export default styles;
