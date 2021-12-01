@@ -1,20 +1,29 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../navigation/Types';
 import * as React from 'react';
-import {View, Text, Button} from 'react-native';
+import styles from '../../styles/styles';
+import {View, Text, Button, TextInput} from 'react-native';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'FirstScreen'>;
+
 const FirstScreen = ({navigation}: Props) => {
+  let paramValue: string = '';
+
   return (
-    // eslint-disable-next-line react-native/no-inline-styles
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>First Screen</Text>
+    <View style={styles.view}>
+      <Text>Insert the title for the second screen:</Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={(value: string) => {
+          paramValue = value;
+        }}
+      />
       <Button
         title={'Navigate to second'}
         testID={'firstBtn'}
         onPress={() =>
           navigation.push('SecondScreen', {
-            firstParam: 'Hi from FirstScreen',
+            firstParam: paramValue,
           })
         }
       />
