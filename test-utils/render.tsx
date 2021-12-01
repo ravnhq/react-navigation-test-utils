@@ -1,6 +1,6 @@
 import React, {ReactElement} from 'react';
 import {render, RenderOptions} from '@testing-library/react-native';
-import {ThemeProvider} from '@react-navigation/native';
+import {DefaultTheme, ThemeProvider} from '@react-navigation/native';
 
 type UI = React.ReactElement<any>;
 
@@ -8,16 +8,11 @@ interface CustomRenderOptions extends RenderOptions {
   navigationParams?: {[key: string]: any};
 }
 
-const customRender = (
-  ui: UI,
-  {navigationParams, ...options}: CustomRenderOptions = {
-    navigationParams: undefined,
-  },
-) => {
-  const AllTheProviders = ({children}: any) => {
-    return <ThemeProvider theme="light">{children}</ThemeProvider>;
-  };
+const AllTheProviders = ({children}: any) => {
+  return <ThemeProvider value={DefaultTheme}>{children}</ThemeProvider>;
+};
 
+const customRender = (ui: UI, options?: Omit<RenderOptions, 'wrapper'>) => {
   const renderApi = render(ui, {wrapper: AllTheProviders, ...options});
 
   return renderApi;
