@@ -14,8 +14,10 @@ describe('navigation buttons', () => {
   it('renders first Screen text', async () => {
     const {getByText} = render(<FirstScreen />);
 
-    const firstText = getByText('First Screen');
-    expect(firstText.props.children).toBe('First Screen');
+    const firstText = getByText('Insert the title for the second screen:');
+    expect(firstText.props.children).toBe(
+      'Insert the title for the second screen:',
+    );
   });
   it(' goes to next screen', async () => {
     const {getByTestId} = render(<FirstScreen />);

@@ -20,7 +20,7 @@ describe('navigation buttons', () => {
   it('renders second text with params', async () => {
     const {getByText} = render(<SecondScreen />);
 
-    const secondText = getByText('Hi');
+    const secondText = getByText('Hi from Screen');
     expect(secondText.props.children).toBe('Hi from Screen');
   });
   it(' goes back', async () => {
